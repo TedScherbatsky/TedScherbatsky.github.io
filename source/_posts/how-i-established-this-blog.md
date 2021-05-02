@@ -3,11 +3,10 @@ title: 这个博客是如何搭建的？
 date: 2021-03-28 15:49:08
 tags:
 - 博客
+description:  整个搭建过程基于B站的教学视频《Luke教你20分钟快速搭建个人博客系列(hexo篇)》。此外，默认配置下博客的主题会有一些细节问题，文本还添加了一些自己的博客、主题配置记录，让博客更完整。比如，导航的『关于』等按钮，可以设置显示或隐藏；显示的话，还要添加『关于』页面。
 ---
 
-整个搭建过程基于B站视频《[Luke教你20分钟快速搭建个人博客系列(hexo篇)](https://www.bilibili.com/video/BV1dt4y1Q7UE)》。
-除了跟着视频做的外，还添加了一些视频没有，但是让博客更完整的配置。比如，导航的『关于』等按钮，可以设置显示或隐藏；显示的话，还要添加『关于』页面。
-
+整个搭建过程基于B站的教学视频《[Luke教你20分钟快速搭建个人博客系列(hexo篇)](https://www.bilibili.com/video/BV1dt4y1Q7UE)》。此外，默认配置下博客的主题会有一些细节问题，文本还添加了一些自己的博客、主题配置记录，让博客更完整。比如，导航的『关于』等按钮，可以设置显示或隐藏；显示的话，还要添加『关于』页面。
 ## 一、基本创建
 
 ```powershell
@@ -22,15 +21,15 @@ hexo server
 
 ### 基本配置
 
-在`_config.yml`文件`#site`部分，可以修改博客的信息、标题、作者名和语言等。
+`站点配置文件`是`_config.yml`，其`#site`部分，可以修改博客的信息、标题、作者名和语言等。
 
 ### 更换皮肤
 
 - 在GitHub里搜hexo-theme来寻找受欢迎的主题，比如说用[cactus](https://github.com/probberechts/hexo-theme-cactus)。  
   - 如果是第一次搭建博客，可以先别急着找心仪的主题，把一切跑通，知道大概怎么玩了，再慢慢更换为自己喜欢的主题。
 - 下载并放到theme目录下。
-- 修改`_config.yml`中`theme`字段。
-- 主题里还有个`_config.yml`文件，可以配置主题色等，**本文最后部分有简单介绍**。
+- 修改`站点配置文件`中`theme`字段。
+- 主题目录下还有个同名的`_config.yml`文件，是`站点配置文件`，可以配置主题色等，**本文最后部分有简单介绍**。
 
 > 现在主题现在换用为[NexT](https://github.com/theme-next/hexo-theme-next)了。
 
@@ -41,7 +40,7 @@ hexo server
 - 指定远程地址到该GitHub项目：`git remote add origin 远程地址`
 - 安装yarn工具：`npm i -g yarn`
 - 安装一个库，它会帮助我们将生成好的代码部署到一个具体分支：`yarn add hexo-deployer-git`
-- 在`_config.yml`中添加部署配置
+- 在`站点配置文件`中添加部署配置
 
     ```powershell
     deploy:
@@ -152,15 +151,18 @@ tags:
 
 ## 六、配置主题
 
-在主题目录的`_config.yml`中，可以配置与该主题相关的内容。
-比如，导航链接和社交链接等，注释掉不要的项。或者开启并添加自己的链接。
+`主题配置文件`可以配置与该主题相关的内容。比如，导航和社交链接等，注释掉不要的，。或者开启并添加自己的链接。
 
 每个主题都有自己的配置方式。next的[配置文档](http://theme-next.iissnan.com/getting-started.html)
 
 1. 『social』：可以改变左边导航中的显示或隐藏『邮件』、『GitHub』等链接图标，还可以添加自己的，还可以添加自己的，比如『知乎』等，图标就要自己找咯。
 2. 『Schemes』：主题之下又分几种风格，可以在这里选择用哪个。还可以开启夜间模式。
+3. 『menu』：可以配置导航栏的菜单按钮。
+4. 修改字体大小：该主题目录下的`source/css/_variables/base.styl`的`$font-size-base`，默认是`16px`的。
+5. 添加摘要：[如何设置「阅读全文」？](http://theme-next.iissnan.com/faqs.html#read-more)。
+6. 修改文案：配置文件在主题目录的`languages/zh-CN.yml`中。(其实在项目目录中搜中文关键词更快。)
 
-> 图标使用了这个[Font Awesome](https://www.thinkcmf.com/font_awesome.html) ，主题配置文件里的`fa-github`之类的就是用的这个。应该是通用的，如果想换图标的话可以去看看。
+> `主题配置文件`里的`fa-github`之类的图标用的是[Font Awesome](https://www.thinkcmf.com/font_awesome.html) 。如果想换其他图标的话可以去网站里看看。
 
 ## 参考
 

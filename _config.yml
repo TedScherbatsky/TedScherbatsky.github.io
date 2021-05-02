@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: the pilot
+title: ratiger
 subtitle: ''
-description: ''
+description: '老鼠，老虎，傻傻分不清'
 keywords:
 author: ratiger
 language: zh-CN
@@ -98,7 +98,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: landscape
-theme: cactus
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

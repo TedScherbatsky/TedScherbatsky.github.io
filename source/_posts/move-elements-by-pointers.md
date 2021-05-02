@@ -1,11 +1,13 @@
 ---
-title: 利用多指针进行元素移动
+title: 以快排划分的实现为例 —— 数组元素的移动问题
 date: 2021-04-02 00:36:29
 tags:
 - 算法
+description: 快排的划分是以数组中的某个数为依据，将数组分为小于和大于两部分。这个过程有两种不同的实现思路，不同的思路，实现难度和易错程度截然不同！
 ---
 
-## 一、插入排序
+快排的划分是以数组中的某个数为依据，将数组分为小于和大于两部分。这个过程有两种不同的实现思路，不同的思路，实现难度和易错程度截然不同！
+## 插入排序
 
 以下两种思路不同，但实现几乎一样。
 
@@ -38,7 +40,7 @@ def insert_sort2(nums):
         nums[j] = cur # j-1没有数了，或者cur比nums[j-1]大，总之j这个位置让给cur坐
 ```
 
-## 二、移动0问题
+## 移动0问题
 
 LeetCode [283. Move Zeroes](https://leetcode-cn.com/problems/move-zeroes/):  
 给定一个数组 `nums`，编写一个函数将所有 `0` 移动到数组的末尾，同时保持非零元素的相对顺序。如
@@ -78,7 +80,7 @@ def moveZeroes(nums):
         index+=1
 ```
 
-## 三、快速排序中的划分
+## 快速排序中的划分
 
 输入：一个数组`nums`，和需要换分的起`start`止`end`位置。
 输出：返回划分元素x的下标i，数组已经被整理，i左边的数小于等于x，i右边的数大于x。
@@ -90,23 +92,23 @@ def moveZeroes(nums):
 
 ```Python
 def partition(nums, start, end):
-	if start == end: return end
-	i = start
-	j = end
-	x = nums[i]
-	while i < j:
-		while i<j and nums[j]>x: # 找到右边小于等于x的数
-			j-=1
-		if i<j:
-			nums[i] = nums[j] # nums[j]去到了i这个位置,j这个位置的数可以被覆盖了
-			i+=1
-		while i<j and nums[i]<x: # 找到左边大于等于x的数
-			i+=1
-		if i<j:
-			nums[j] = nums[i]  # nums[i]去到了j这个位置,i这个位置的数可以被覆盖了
-			j-=1
-	nums[i]=x # 最后覆盖i这个位置
-	return i
+    if start == end: return end
+    i = start
+    j = end
+    x = nums[i]
+    while i < j:
+        while i<j and nums[j]>x: # 找到右边小于等于x的数
+            j-=1
+        if i<j:
+            nums[i] = nums[j] # nums[j]去到了i这个位置,j这个位置的数可以被覆盖了
+            i+=1
+        while i<j and nums[i]<x: # 找到左边大于等于x的数
+            i+=1
+        if i<j:
+            nums[j] = nums[i]  # nums[i]去到了j这个位置,i这个位置的数可以被覆盖了
+            j-=1
+    nums[i]=x # 最后覆盖i这个位置
+    return i
 ```
 
 ### 思路2 给位置找到合适的数
