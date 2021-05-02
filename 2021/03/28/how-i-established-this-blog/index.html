@@ -14,8 +14,8 @@
 <meta property="og:description" content="整个搭建过程完全参照B站视频《Luke教你20分钟快速搭建个人博客系列(hexo篇)》，这里是跟着视频一步步做，并且把每一步记录下来而已。 一、基本创建12345npm install hexo-cli -ghexo init blogcd blognpm installhexo server  启动服务后，访问指定地址，可以看到博客。 基本配置在_config.yml文件#site部分，可以修改">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-28T15:49:08.000Z">
-<meta property="article:modified_time" content="2021-04-01T16:42:19.955Z">
-<meta property="article:author" content="Ted Scherbatsky">
+<meta property="article:modified_time" content="2021-05-02T07:21:19.948Z">
+<meta property="article:author" content="ratiger">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="一步步记录">
 <meta name="twitter:card" content="summary">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Ted Scherbatsky</span>
+        <span itemprop="name">ratiger</span>
       </span>
       
     <div class="postdate">
@@ -192,7 +192,7 @@
 <h3 id="提交代码并push"><a href="#提交代码并push" class="headerlink" title="提交代码并push"></a>提交代码并push</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &#39;...&#39;</span><br><span class="line">git push —set-upstream origin myblog</span><br></pre></td></tr></table></figure>
 <p>推送到myblog分支后，就触发更新文章master分支，但需要等一会。</p>
 <h2 id="四、在线编辑文章"><a href="#四、在线编辑文章" class="headerlink" title="四、在线编辑文章"></a>四、在线编辑文章</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>在GitHub中可以直接修改对应markdown源文件，然后会自动触发action。因此在任何地方只要登录了GitHub账号，就可以去到项目中修改文章了。</p>
-<h3 id="给文章添加快速跳转"><a href="#给文章添加快速跳转" class="headerlink" title="给文章添加快速跳转"></a>给文章添加快速跳转</h3><p>某个文件的修改的地址是：<a target="_blank" rel="noopener" href="https://github.com/TedScherbatsky/TedScherbatsky.github.io/edit/myblog/source/_posts/hello-world.md">https://github.com/用户名/用户名.github.io/edit/分支名/source/_posts/文件名.md</a>。在博客文章模板中添加可以文件路径，这样可以直接跳转到这个地方，进而编辑。<br>在<code>theme/你的主题/layout/</code>中下的某个模板文件的预想的位置，比如我的是在<code>footer.ejs</code>里，添加链接：</p>
+<h3 id="给文章添加快速跳转"><a href="#给文章添加快速跳转" class="headerlink" title="给文章添加快速跳转"></a>给文章添加快速跳转</h3><p>某个文件的修改的地址是：<a target="_blank" rel="noopener" href="https://github.com/ratiger/ratiger.github.io/edit/myblog/source/_posts/hello-world.md">https://github.com/用户名/用户名.github.io/edit/分支名/source/_posts/文件名.md</a>。在博客文章模板中添加可以文件路径，这样可以直接跳转到这个地方，进而编辑。<br>在<code>theme/你的主题/layout/</code>中下的某个模板文件的预想的位置，比如我的是在<code>footer.ejs</code>里，添加链接：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://github.com/用户名/用户名.github.io/edit/分支名/source/&lt;%- page.source %&gt;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>可以先本地启动服务看看效果，决定后再push到远程分支。</p>
 <h2 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h2><h3 id="配置导航"><a href="#配置导航" class="headerlink" title="配置导航"></a>配置导航</h3><p>在主题目录的<code>_config.yml</code>中，有导航链接<code>nav</code>和社交链接<code>social_links</code>，可以配置自己的链接，或者注释掉不要的项。</p>
@@ -271,12 +271,12 @@
     
     
     2021
-    Ted Scherbatsky
+    ratiger
   </div>
   <div class="footer-right">
     <nav>
       <ul>
-        <li><a href="https://github.com/TedScherbatsky/TedScherbatsky.github.io/edit/myblog/source/_posts/how-i-established-this-blog.md" target="_blank">编辑</a></li>
+        <li><a href="https://github.com/ratiger/ratiger.github.io/edit/myblog/source/_posts/how-i-established-this-blog.md" target="_blank">编辑</a></li>
          
           <li><a href="/">首页</a></li>
          
