@@ -1,14 +1,16 @@
 ---
-title: 同一问题不同视角切入，有不同的解决思路 - 利用双指针进行元素移动
+title: 利用多指针进行元素移动
 date: 2021-04-02 00:36:29
 tags:
 - 算法
 ---
 
-解决一个问题可以有多个视角，而对于某些问题，某些视角特别好用。这篇文章的目的不是教你如何找到多个视角，而是希望你能意识到这点，在看一个问题的时候，尝试从多个角度思考。（顺便讲讲利用双指针进行元素移动的思路）
 ## 一、插入排序
+
 以下两种思路不同，但实现几乎一样。
+
 ### 思路1 每轮寻找合适位置插入
+
 ```Python
 def insert_sort1(nums):
     for i in range(1, len(nums)):
@@ -21,7 +23,9 @@ def insert_sort1(nums):
         # 此时j为-1,cur插入0这个位置 , 或者nums[j]比当前数小,插入j+1这个位置
         nums[j+1] = cur
 ```
+
 ### 思路2 每轮给位置找合适的数
+
 ```Python
 def insert_sort2(nums):
     for i in range(1, len(nums)):
@@ -33,15 +37,20 @@ def insert_sort2(nums):
             j -= 1
         nums[j] = cur # j-1没有数了，或者cur比nums[j-1]大，总之j这个位置让给cur坐
 ```
+
 ## 二、移动0问题
-LeetCode原题[283. Move Zeroes](https://leetcode-cn.com/problems/move-zeroes/)：给定一个数组 `nums`，编写一个函数将所有 `0` 移动到数组的末尾，同时保持非零元素的相对顺序。如
+
+LeetCode [283. Move Zeroes](https://leetcode-cn.com/problems/move-zeroes/):  
+给定一个数组 `nums`，编写一个函数将所有 `0` 移动到数组的末尾，同时保持非零元素的相对顺序。如
 **输入:** `[0,1,0,3,12]`
 **输出:** `[1,3,12,0,0]`
-
 以下两种思路不同而算法复杂度不同。
+
 ### 思路1 把1插入到前边
+
 循环每一个元素，判断它左边的所有元素是不是为1，如果有不是1的（也就是有0），那就把0往右移1个位置，把当前的元素赋到0这个位置。
 时间复杂度：O(n^2)
+
 ```Python
 def moveZeroes(nums):
     for i in range(1,len(nums)):
@@ -51,9 +60,12 @@ def moveZeroes(nums):
     		nums[j+1], nums[j] = nums[j], nums[j+1] 
     		j-=1
 ```
+
 ### 思路2 给位置找到合适的数
+
 给index位置的找正确的数，如果i非0，则放入，并且index前进；否则i进行前进。
 时间复杂度：O(n)
+
 ```Python
 def moveZeroes(nums):
     index = 0
@@ -67,11 +79,15 @@ def moveZeroes(nums):
 ```
 
 ## 三、快速排序中的划分
+
 输入：一个数组`nums`，和需要换分的起`start`止`end`位置。
 输出：返回划分元素x的下标i，数组已经被整理，i左边的数小于等于x，i右边的数大于x。
 以下两种思路，实现难度是不同的。
+
 ### 思路1 不断左右交换
+
 从左右两边开始不断『寻找大于x和小于等于x的数，进行交换』，左右相遇。
+
 ```Python
 def partition(nums, start, end):
 	if start == end: return end
@@ -92,8 +108,11 @@ def partition(nums, start, end):
 	nums[i]=x # 最后覆盖i这个位置
 	return i
 ```
+
 ### 思路2 给位置找到合适的数
-从左边开始，给位置找到合适的数
+
+从左边开始，给位置找到合适的数.
+
 ```Python
 def partition(nums, start, end):
     if start == end: return end
@@ -106,4 +125,3 @@ def partition(nums, start, end):
     nums[index], nums[end] = nums[end],nums[index] # 这里处理最后一个
     return index
 ```
-

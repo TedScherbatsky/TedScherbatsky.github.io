@@ -5,9 +5,12 @@ tags:
 - 算法
 ---
 在递归函数内部配合缩进，打印关键值，可以直观地观察递归函数执行情况。
-参考：[labuladong - 分享一个小技巧，提高刷题幸福感](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247490945&idx=1&sn=03da23d366ad4577d2a22328f3ba04f9)
+> 参考：[labuladong - 分享一个小技巧，提高刷题幸福感](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247490945&idx=1&sn=03da23d366ad4577d2a22328f3ba04f9)
+
 ### Python方案
+
 用Python装饰器，可以实现一个更方便的使用的方案。
+
 ```py
 def debugHelper(func): # 装饰器
     cnt = 0
@@ -30,7 +33,9 @@ def debugHelper(func): # 装饰器
 ```
 
 ### 使用示例 1
+
 斐波那契数列
+
 ```py
 @debugHelper
 def fib(n) -> int:
@@ -63,7 +68,9 @@ print(res)
 ```
 
 ### 使用示例 2
+
 LeetCode第10题
+
 ```py
 def isMatch(s: str, p: str) -> bool:
     # .*表示任意字符串都可以匹配了
