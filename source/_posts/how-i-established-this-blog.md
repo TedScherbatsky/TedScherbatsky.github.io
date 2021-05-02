@@ -107,7 +107,7 @@ git push —set-upstream origin myblog
 
 ### 给文章添加快速跳转
 
-某个文件的修改的地址是：[https://github.com/用户名/用户名.github.io/edit/分支名/source/_posts/文件名.md](https://github.com/TedScherbatsky/TedScherbatsky.github.io/edit/myblog/source/_posts/hello-world.md)。在博客文章模板中添加可以文件路径，这样可以直接跳转到这个地方，进而编辑。
+某个文件的修改的地址是：[https://github.com/用户名/用户名.github.io/edit/分支名/source/_posts/文件名.md](https://github.com/ratiger/ratiger.github.io/edit/myblog/source/_posts/hello-world.md)。在博客文章模板中添加可以文件路径，这样可以直接跳转到这个地方，进而编辑。
 在`theme/你的主题/layout/`中下的某个模板文件的预想的位置，比如我的是在`footer.ejs`里，添加链接：
 ```html
 <a href="https://github.com/用户名/用户名.github.io/edit/分支名/source/<%- page.source %>" target="_blank">编辑</a>

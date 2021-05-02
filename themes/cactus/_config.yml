@@ -5,7 +5,7 @@
 # Link to a page that gives an overview of all your projects.
 # This can be an external link (e.g., to you GitHub profile) or to another
 # page within your website.
-projects_url: http://github.com/TedScherbatsky
+projects_url: http://github.com/ratiger
 
 # Set the page direction to RTL or LTR. default is LTR. (if you set it 'rtl', the 'vazir' font will be loaded.)
 direction: ltr
@@ -18,7 +18,7 @@ nav:
   tag: /tags/
   articles: /archives/
   about: /about/ 
-  # projects: http://github.com/TedScherbatsky
+  # projects: http://github.com/ratiger
 
 
 # Links to your social media accounts.
@@ -26,7 +26,7 @@ nav:
 # (see https://fontawesome.com/icons?d=gallery&s=brands);
 # only 'mail' is an exception.
 social_links:
-  github: https://github.com/TedScherbatsky
+  github: https://github.com/ratiger
   # twitter: /
   # facebook: /
   # linkedin: /
