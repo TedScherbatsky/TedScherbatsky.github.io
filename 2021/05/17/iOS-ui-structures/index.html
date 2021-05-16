@@ -20,30 +20,38 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="老鼠，老虎，傻傻分不清">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ratiger">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="APP的界面层的结构指的是平常所说的MVC、MVVM这些。整个APP一般用的还是3层结构：界面层、服务层、数据层。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS APP界面层的结构(MVC、MVP、MVVM)">
+<meta property="og:url" content="http://example.com/2021/05/17/iOS-ui-structures/index.html">
 <meta property="og:site_name" content="ratiger">
-<meta property="og:description" content="老鼠，老虎，傻傻分不清">
+<meta property="og:description" content="APP的界面层的结构指的是平常所说的MVC、MVVM这些。整个APP一般用的还是3层结构：界面层、服务层、数据层。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/MVC%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/images/%E6%94%B9%E8%89%AF%E7%9A%84MVC%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/images/MVP%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/images/MVVM%E7%BB%93%E6%9E%84.png">
+<meta property="article:published_time" content="2021-05-17T00:16:56.000Z">
+<meta property="article:modified_time" content="2021-05-16T16:39:02.266Z">
 <meta property="article:author" content="ratiger">
+<meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/MVC%E7%BB%93%E6%9E%84.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/05/17/iOS-ui-structures/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>ratiger</title>
+  <title>iOS APP界面层的结构(MVC、MVP、MVVM) | ratiger</title>
   
 
 
@@ -141,9 +149,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -159,10 +168,9 @@
       <meta itemprop="name" content="ratiger">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/17/iOS-ui-structures/" class="post-title-link" itemprop="url">iOS APP界面层的结构(MVC、MVP、MVVM)</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          iOS APP界面层的结构(MVC、MVP、MVVM)
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -182,6 +190,7 @@
               </span>
 
           
+            <div class="post-description">APP的界面层的结构指的是平常所说的MVC、MVVM这些。整个APP一般用的还是3层结构：界面层、服务层、数据层。</div>
 
         </div>
       </header>
@@ -192,246 +201,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>APP的界面层的结构指的是平常所说的MVC、MVVM这些。整个APP一般用的还是3层结构：界面层、服务层、数据层。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/17/iOS-ui-structures/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>APP的界面层的结构指的是平常所说的<code>MVC</code>、<code>MVVM</code>这些。</p>
+<blockquote>
+<p>整个APP的话，一般用的还是3层结构：界面层、服务层、数据层。</p>
+</blockquote>
+<h3 id="标准的MVC"><a href="#标准的MVC" class="headerlink" title="标准的MVC"></a>标准的MVC</h3><p><img src="/images/MVC%E7%BB%93%E6%9E%84.png" alt="MVC结构"></p>
+<p>当<code>Controller</code>从<code>Service</code>得到新的数据后，把数据更新给<code>View</code>。注意，<code>View</code>是完全不知道<code>Model</code>的。</p>
+<h3 id="改良的MVC"><a href="#改良的MVC" class="headerlink" title="改良的MVC"></a>改良的MVC</h3><p>这个<code>ViewModel</code>是指<code>View</code>的数据模型，跟<code>MVVM</code>的<code>ViewModel</code>是不一样的。只是为了把<code>View</code>需要的数据<strong>结构化</strong>。</p>
+<p><img src="/images/%E6%94%B9%E8%89%AF%E7%9A%84MVC%E7%BB%93%E6%9E%84.png" alt="改良的MVC结构"></p>
+<h3 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h3><p><code>Controller</code>持有多个<code>Presenter</code>，每个<code>Presenter</code>相当于上面的<code>MVC</code>或<code>改良的MVC</code>。<br>这样做可以防止<code>Controller</code>过于臃肿，也可方便界面的模块组合，以及可能的复用。</p>
+<p><img src="/images/MVP%E7%BB%93%E6%9E%84.png" alt="MVP结构"></p>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>强调<strong>动态绑定</strong>，以使用<code>KVOController</code>为例。<br><code>ViewModel</code>把<code>view</code>需要的数据作为属性开放出来，<code>view</code>利用<code>KVOController</code>来监听这些属性。<code>ViewModel</code>的这些属性修改时，<code>view</code>的数据跟着改变。</p>
+<p><img src="/images/MVVM%E7%BB%93%E6%9E%84.png" alt="MVVM结构"></p>
+
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/02/a-trick-to-debug-recursive-function/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ratiger">
-      <meta itemprop="description" content="老鼠，老虎，傻傻分不清">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ratiger">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/02/a-trick-to-debug-recursive-function/" class="post-title-link" itemprop="url">递归函数的Debug技巧</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-02 15:24:56" itemprop="dateCreated datePublished" datetime="2021-05-02T15:24:56+00:00">2021-05-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:39:02" itemprop="dateModified" datetime="2021-05-16T16:39:02+00:00">2021-05-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在递归函数内部配合缩进，打印关键值，可以更直观地观察递归函数的执行情况。而利用Python装饰器，可无需修改调试函数实现，达到同样的效果。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/02/a-trick-to-debug-recursive-function/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/02/move-elements-by-pointers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ratiger">
-      <meta itemprop="description" content="老鼠，老虎，傻傻分不清">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ratiger">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/02/move-elements-by-pointers/" class="post-title-link" itemprop="url">以快排划分的实现为例 —— 数组元素的移动问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-02 00:36:29" itemprop="dateCreated datePublished" datetime="2021-04-02T00:36:29+00:00">2021-04-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:39:02" itemprop="dateModified" datetime="2021-05-16T16:39:02+00:00">2021-05-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>快排的划分是以数组中的某个数为依据，将数组分为小于和大于两部分。这个过程有两种不同的实现思路，不同的思路，实现难度和易错程度截然不同！</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/02/move-elements-by-pointers/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/02/a-trick-to-debug-recursive-function/" rel="prev" title="递归函数的Debug技巧">
+      <i class="fa fa-chevron-left"></i> 递归函数的Debug技巧
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/28/how-i-established-this-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="ratiger">
-      <meta itemprop="description" content="老鼠，老虎，傻傻分不清">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ratiger">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/28/how-i-established-this-blog/" class="post-title-link" itemprop="url">这个博客是如何搭建的？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-28 15:49:08" itemprop="dateCreated datePublished" datetime="2021-03-28T15:49:08+00:00">2021-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-16 16:39:02" itemprop="dateModified" datetime="2021-05-16T16:39:02+00:00">2021-05-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>整个搭建过程基于B站的教学视频《Luke教你20分钟快速搭建个人博客系列(hexo篇)》。此外，默认配置下博客的主题会有一些细节问题，文本还添加了一些自己的博客、主题配置记录，让博客更完整。比如，导航的『关于』等按钮，可以设置显示或隐藏；显示的话，还要添加『关于』页面。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/28/how-i-established-this-blog/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -484,6 +293,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E7%9A%84MVC"><span class="nav-number">1.</span> <span class="nav-text">标准的MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%89%AF%E7%9A%84MVC"><span class="nav-number">2.</span> <span class="nav-text">改良的MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP"><span class="nav-number">3.</span> <span class="nav-text">MVP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVVM"><span class="nav-number">4.</span> <span class="nav-text">MVVM</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
